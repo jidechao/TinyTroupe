@@ -106,7 +106,7 @@ class OpenAIClient:
         """
         Sets up the OpenAI API configurations for this client.
         """
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"),base_url=os.getenv("OPENAI_BASE_URL"))
 
     def send_message(self,
                     current_messages,
@@ -275,6 +275,7 @@ class OpenAIClient:
                 "gpt-4-32k-0314",
                 "gpt-4-0613",
                 "gpt-4-32k-0613",
+                "deepseek-chat",
                 }:
                 tokens_per_message = 3
                 tokens_per_name = 1
